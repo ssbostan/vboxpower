@@ -1,0 +1,19 @@
+# VirtualBox Power Driver for MAAS (Metal as a Service)
+# Copyright 2021 Saeid Bostandoust <ssbostan@linuxmail.org>
+
+[Unit]
+Description=VirtualBox Power Driver for MAAS
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=1
+User=1000
+ExecStart=gunicorn \
+  --chdir /opt/maas/vboxpower \
+  -b 0.0.0.0:5241 \
+  --access-logfile - --error-logfile - \
+  -w 2 vboxpower:app
+
+[Install]
+WantedBy=multi-user.target
