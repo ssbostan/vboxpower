@@ -1,5 +1,7 @@
 # vboxpower
 
+![Visits Badge](https://badges.pufler.dev/visits/ssbostan/vboxpower)
+
 VirtualBox Power Driver for MAAS (Metal as a Service)
 
 A way to manage the power of VirtualBox virtual machines via the MAAS webhook driver.
