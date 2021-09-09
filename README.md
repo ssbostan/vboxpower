@@ -93,6 +93,22 @@ Other versions should be work without problem.
 
 ![demo](https://raw.githubusercontent.com/ssbostan/vboxpower/master/demo.gif)
 
+## Recommended Architecture
+
+If you want to deploy MAAS inside a virtual machine as well, I recommend you to make an environment like the following architecture. In this architecture, you need two virtual machines to create the MAAS stack. The former is a firewall which I suggest use pfSense, OpenWrt, Ubuntu (MASQUERADE), and the latter is a virtual machine that the MAAS is deployed on that. In addition to these essential virtual machines, create target virtual machines, the machines that you want to be deployed by the MAAS platform.
+
+<p align="center">
+  <img alt="vboxpower architecture" src="https://raw.githubusercontent.com/ssbostan/vboxpower/master/architecture.png">
+</p>
+
+The ![PURPLE](https://via.placeholder.com/15/9673A6/000000?text=+) path shows the path of the way the MAAS machine accesses the internet.
+
+The ![RED](https://via.placeholder.com/15/B85450/000000?text=+) path shows the path of power management of the target machine.
+
+The ![GREEN](https://via.placeholder.com/15/82B366/000000?text=+) path shows the path of how the MAAS deploys the target machine.
+
+The ![YELLOW](https://via.placeholder.com/15/D6B656/000000?text=+) path shows the path of the way the target machine accesses to the internet.
+
 ## How to contribute:
 
 All contributions are welcomed. If you find any bugs, please file an issue.
