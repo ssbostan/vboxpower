@@ -107,7 +107,7 @@ The ![RED](https://via.placeholder.com/15/B85450/000000?text=+) path shows the p
 
 The ![GREEN](https://via.placeholder.com/15/82B366/000000?text=+) path shows the path of how the MAAS deploys the target machine.
 
-The ![YELLOW](https://via.placeholder.com/15/D6B656/000000?text=+) path shows the path of the way the target machine accesses to the internet.
+The ![YELLOW](https://via.placeholder.com/15/D6B656/000000?text=+) path shows the path of the way the target machine accesses the internet.
 
 ## How to contribute:
 
