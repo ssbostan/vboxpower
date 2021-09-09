@@ -1,6 +1,10 @@
 # vboxpower
 
 ![Visits Badge](https://badges.pufler.dev/visits/ssbostan/vboxpower)
+[![GitHub license](https://img.shields.io/github/license/ssbostan/vboxpower)](https://github.com/ssbostan/vboxpower/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/ssbostan/vboxpower)](https://github.com/ssbostan/vboxpower/stargazers)
+
+Stargaze ![GitHub Repo stars](https://img.shields.io/github/stars/ssbostan/vboxpower?style=social) if you find it useful.
 
 VirtualBox Power Driver for MAAS (Metal as a Service)
 
