@@ -48,7 +48,7 @@ After deployment, the deploy script starts the vboxpower service.
 
 ```bash
 sudo apt update && apt install -y python3-pip
-sudo ./start
+sudo ./deploy
 ```
 
 ### Test vboxpower:
