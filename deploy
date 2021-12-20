@@ -10,6 +10,12 @@ which virtualbox &> /dev/null
 if [ $? -ne 0 ]; then
     echo "ERROR: VirtualBox is not installed."
     exit 1
+fi
+
+which gunicorn &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "ERROR: 'gunicorn' is not available in this box. Please install gunicorn package first"
+    exit 1
 else
     echo "INFO: VirtualBox is installed on the system."
 fi
