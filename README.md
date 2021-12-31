@@ -35,7 +35,7 @@ Both MAAS and vboxpower are written in Python language. So, you don't need anoth
 Download and extract VirtualBox SDK and run the following command.
 
 ```bash
-sudo VBOX_INSTALL_PATH=/usr/lib/virtualbox python vboxapisetup.py install
+sudo VBOX_INSTALL_PATH=/usr/lib/virtualbox python3 vboxapisetup.py install
 ```
 
 ### Get started:
@@ -47,7 +47,7 @@ The deploy script creates systemd service and copies `vboxpower.py` to `/opt/maa
 After deployment, the deploy script starts the vboxpower service.
 
 ```bash
-sudo apt update && apt install -y python3-pip
+sudo apt update && apt install -y python3-pip python3
 sudo ./deploy
 ```
 
