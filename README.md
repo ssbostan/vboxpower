@@ -47,7 +47,7 @@ The deploy script creates systemd service and copies `vboxpower.py` to `/opt/maa
 After deployment, the deploy script starts the vboxpower service.
 
 ```bash
-sudo apt update && apt install -y python3-pip python3
+sudo apt update && sudo apt install -y python3-pip python3
 sudo ./deploy
 ```
 
