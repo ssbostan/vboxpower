@@ -14,11 +14,11 @@ A way to manage the power of VirtualBox virtual machines via the MAAS webhook dr
 
 ## What is MAAS?
 
-MAAS (Metal as a Service) is a tool to turns real servers into bare-metal cloud. With MAAS, you can automate server provisioning and installing OS remotely on both physical and virtual servers. [MAAS.io](https://maas.io/) for more information.
+MAAS (Metal as a Service) is a tool to turn real servers (or virtual machines) into bare-metal cloud. With MAAS, you can automate server provisioning and installing OS remotely on both physical and virtual servers. [MAAS.io](https://maas.io/) for more information.
 
 ## What is vboxpower?
 
-`vboxpower` is a wrapper to enabling MAAS to manage VirtualBox virtual machines power directly. As you know, MAAS does not natively support VirtualBox power management. Before vboxpower, you had to use `manual` power type for VirtualBox machines, the process of starting/stopping virtual machines did manually but with vboxpower this process is done automatically. So to speak, the prophecy of the vboxpower is translating power commands between VirtualBox and MAAS.
+`vboxpower` is a wrapper to enabling MAAS to manage VirtualBox virtual machines power directly. Maybe you know, MAAS does not natively support VirtualBox power management. Before vboxpower, you had to use `manual` power type for VirtualBox machines, the process of starting/stopping virtual machines is done manually but with vboxpower this process is done automatically. So to speak, the prophecy of the vboxpower is translating power commands between VirtualBox and MAAS.
 
 ## How to install vboxpower:
 
@@ -101,7 +101,7 @@ Other versions should be work without problem.
 
 ## Recommended Architecture
 
-If you want to deploy MAAS inside a virtual machine as well, I recommend you to make an environment like the following architecture. In this architecture, you need two virtual machines to create the MAAS stack. The former is a firewall which I suggest use pfSense, OpenWrt, Ubuntu (MASQUERADE), and the latter is a virtual machine that the MAAS is deployed on that. In addition to these essential virtual machines, create target virtual machines, the machines that you want to be deployed by the MAAS platform.
+If you want to deploy MAAS inside a virtual machine, I recommend you make an environment like the following architecture. This architecture needs two virtual machines to create the MAAS stack. The former is a firewall that I suggest using pfSense, OpenWrt, Ubuntu (MASQUERADE), and the latter is a virtual machine that the MAAS deployed on. In addition to these essential virtual machines, create target virtual machines, which you want to be deployed by the MAAS platform.
 
 <p align="center">
   <img alt="vboxpower architecture" src="https://raw.githubusercontent.com/ssbostan/vboxpower/master/architecture.png">
