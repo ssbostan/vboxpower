@@ -1,9 +1,8 @@
 # vboxpower
 
-![Visits Badge](https://badges.pufler.dev/visits/ssbostan/vboxpower)
 [![GitHub license](https://img.shields.io/github/license/ssbostan/vboxpower)](https://github.com/ssbostan/vboxpower/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/ssbostan/vboxpower)](https://github.com/ssbostan/vboxpower/stargazers)
-![Twitter Follow](https://img.shields.io/twitter/follow/b9t_ir?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/saeidbostan?style=social)
 ![LinkedIn Follow](https://shields.io/badge/style-ssbostan-black?logo=linkedin&label=LinkedIn&link=https://www.linkedin.com/in/ssbostan)
 
 Stargaze ![GitHub Repo stars](https://img.shields.io/github/stars/ssbostan/vboxpower?style=social) if you find it useful.
