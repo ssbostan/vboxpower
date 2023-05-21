@@ -46,11 +46,11 @@ else
     echo "INFO: Required packages are installed successfully."
 fi
 
-if [ $(getent passwd vboxpower) ] ; then
-        echo "INFO: vboxpwoer user exists"
+if [ $(getent passwd vboxpower) ]; then
+    echo "INFO: vboxpower user already exists."
 else
-        useradd vboxpower
-        echo "INFO: vboxpower user created"
+    useradd -Mr vboxpower
+    echo "INFO: vboxpower user created successfully."
 fi
 
 cp vboxpower.service /etc/systemd/system/vboxpower.service
