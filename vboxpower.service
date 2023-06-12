@@ -8,7 +8,7 @@ After=network.target
 [Service]
 Restart=always
 RestartSec=1
-User=vboxpower
+User=1000
 ExecStart=gunicorn \
   --chdir /opt/maas/vboxpower \
   -b 0.0.0.0:5241 \
