@@ -21,7 +21,7 @@ RESPONSES = {
     }
 }
 
-RUNNING_STATES = ["Starting", "FirstOnline", "Running", "LastOnline"]
+RUNNING_STATES = ["Starting", "FirstOnline", "Running", "LastOnline", "Paused"]
 STOPPED_STATES = ["PoweredOff", "Saved", "Aborted"]
 
 def check_machine_status(machine):
