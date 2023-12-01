@@ -1,8 +1,12 @@
 # VirtualBox Power Driver for MAAS (Metal as a Service)
 # Copyright 2021 Saeid Bostandoust <ssbostan@linuxmail.org>
 
+import logging
 from flask import Flask, url_for
 from virtualbox import VirtualBox, Session
+
+# this is for configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 app = Flask(__name__)
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
@@ -53,7 +57,9 @@ def index():
 def machine_power_on(machine_name):
     try:
         machine = vbox.find_machine(machine_name)
+        logging.info(f"Machine {machine_name} found for power on request.")
     except:
+        logging.error(f"Machine {machine_name} not found for power on request.")
         return RESPONSES["unknown"], 404
     if check_machine_status(machine) == "stopped":
         machine.launch_vm_process(Session(), "headless", [])
