@@ -5,6 +5,10 @@
 
 echo "INFO: Welcome to VirtualBox Power Driver for MAAS (vboxpower)"
 
+# for logging
+LOG_FILE="/var/log/vboxpower-deploy.log"
+exec &> >(tee -a "$LOG_FILE")
+
 which python3 &> /dev/null
 
 if [ $? -ne 0 ]; then
@@ -53,4 +57,15 @@ cp vboxpower.py /opt/maas/vboxpower/vboxpower.py
 
 echo "INFO: Starting vboxpower service."
 
+systemctl daemon-reload
 systemctl enable --now vboxpower.service
+
+if [ systemctl is-active --quiet vboxpower.service ]; then
+    echo "INFO: vboxpower service is running."
+else
+    echo "vboxpower failed to start and it is not running . Check log at $LOG_FILE"
+    exit 1
+fi
+echo "deployment completed. Consider checking log at $LOG_FILE"
+
+

@@ -1,5 +1,6 @@
 # VirtualBox Power Driver for MAAS (Metal as a Service)
 # Copyright 2021 Saeid Bostandoust <ssbostan@linuxmail.org>
+# Dont forget to create those directories for logging and set a proper permissions.
 
 [Unit]
 Description=VirtualBox Power Driver for MAAS
@@ -9,11 +10,16 @@ After=network.target
 Restart=always
 RestartSec=1
 User=1000
+# number of gunicorn worker based on server's cpu
+ExecStartPre=/bin/bash -c 'export NUM_WORKERS=$((2 * $(nproc) + 1))'
 ExecStart=gunicorn \
   --chdir /opt/maas/vboxpower \
   -b 0.0.0.0:5241 \
+  --access-logfile /var/log/vboxpower/access.log \
+  --error-logfile /var/log/vboxpower/error.log \
   --access-logfile - --error-logfile - \
-  -w 2 vboxpower:app
+  --log-level info \
+  -w $NUM_WORKERS vboxpower:app
 
 [Install]
 WantedBy=multi-user.target
