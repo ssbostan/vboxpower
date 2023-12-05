@@ -29,15 +29,16 @@ RUNNING_STATES = ["Starting", "FirstOnline", "Running", "LastOnline", "Paused"]
 STOPPED_STATES = ["PoweredOff", "Saved", "Aborted"]
 
 def check_machine_status(machine):
+    status = "unknown"
     if str(machine.state) in RUNNING_STATES:
-        return "running"
+        status = "running"
     elif str(machine.state) in STOPPED_STATES:
-        return "stopped"
-    else:
-        return "unknown"
+        status = "stopped"
+    logging.info(f"machine {machine.name} status check {status}")
+    return status
 
 def generate_machine_info(machine):
-    return {
+    info = {
         "name": machine.name,
         "status": check_machine_status(machine),
         "links": {
@@ -46,6 +47,8 @@ def generate_machine_info(machine):
             "status": url_for("machine_power_status", machine_name=machine.name)
         }
     }
+    logging.info(f"generated machine info {machine.name}")
+    return info
 
 @app.route("/")
 def index():
@@ -73,22 +76,27 @@ def machine_power_on(machine_name):
 def machine_power_off(machine_name):
     try:
         machine = vbox.find_machine(machine_name)
-    except:
+    except Exception as e:
+        logging.error(f"error finding machine {machine_name}: {e}")
         return RESPONSES["unknown"], 404
     if check_machine_status(machine) == "running":
         session = machine.create_session()
         session.console.power_down()
+        logging.info(f"machine {machine_name} powered off.")
         return RESPONSES["stopped"], 202
     elif check_machine_status(machine) == "stopped":
+        logging.info(f"machine {machine_name} already stopped.")
         return RESPONSES["stopped"], 200
     else:
+        logging.error(f"machine {machine_name} in an unknown state.")
         return RESPONSES["unknown"], 500
 
 @app.route("/<machine_name>/status")
 def machine_power_status(machine_name):
     try:
         machine = vbox.find_machine(machine_name)
-    except:
+    except Exception as e:
+        logging.error(f"error finding machine {machine_name}: {e}")
         return RESPONSES["unknown"], 404
     if check_machine_status(machine) == "running":
         return RESPONSES["running"], 200
